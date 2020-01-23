@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/sem-projekt/";
+const URL = "http://localhost:8080/exam-backend/";
 function handleHttpErrors(res) {
   if (!res.ok) {
     return Promise.reject({ status: res.status, fullError: res.json() });
@@ -64,26 +64,10 @@ function ApiFacade() {
     return fetch(URL + options).then(handleHttpErrors);
   };
 
-  const fetchFlightInfo = (
-    startDate,
-    cabinClass,
-    arrival,
-    destination,
-    adults
-  ) => {
+  
     const options = makeOptions("GET", true);
     return fetch(
-      URL +
-        startDate +
-        "/" +
-        cabinClass +
-        "/" +
-        arrival +
-        "/" +
-        destination +
-        "/" +
-        adults,
-      options
+      URL + options
     ).then(handleHttpErrors);
   };
 
@@ -96,7 +80,7 @@ function ApiFacade() {
     logout,
     fetchData,
     getTokenInfo,
-    fetchFlightInfo
+    
   };
 }
 
